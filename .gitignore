@@ -1,0 +1,26 @@
+# Node.js related
+node_modules/
+.env
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Database and ORM related
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.rest
+

@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "jamy",
+    "password": "jamy@123",
+    "database": "mydatabase",
+    "host": "localhost",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "jamy",
+    "password": "jamy@123",
+    "database": "mydatabase_test",
+    "host": "localhost",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "jamy",
+    "password": "jamy@123",
+    "database": "mydatabase_production",
+    "host": "localhost",
+    "port": 5432,
+    "dialect": "postgres"
+  }
+}
