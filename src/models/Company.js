@@ -1,26 +1,24 @@
-// Model for UserSession
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../config/db_config");
 
-const UserSession = sequelize.define(
-  "UserSession",
+const Company = sequelize.define(
+  "Company",
   {
-    userId: {
+    id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
       allowNull: false,
     },
-    token: {
+    name: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    expiresAt: {
-      type: DataTypes.DATE,
       allowNull: false,
     },
   },
   {
     timestamps: true,
+    paranoid: true,
   }
 );
 
-module.exports = UserSession;
+module.exports = Company;

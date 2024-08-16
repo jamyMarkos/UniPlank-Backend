@@ -15,6 +15,10 @@ exports.authenticateJWT = async (req, res, next) => {
       attributes: { exclude: ["password"] },
     });
 
+    // bind userId and userRole to req object
+    req.userId = decoded.userId;
+    req.userRole = req.user.role;
+
     next();
   } catch (error) {
     res.status(403).json({ message: "Invalid token" });

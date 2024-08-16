@@ -1,6 +1,6 @@
-exports.authorizeRole = (roleName) => {
+exports.authorizeRole = (roleNames) => {
   return (req, res, next) => {
-    if (req.user.role !== roleName) {
+    if (!roleNames.includes(req.user.role)) {
       return res
         .status(403)
         .json({ message: "Forbidden: Insufficient privileges" });

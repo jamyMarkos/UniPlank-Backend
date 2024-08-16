@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../config/db_config");
+const Company = require("./Company");
 
 const User = sequelize.define(
   "User",
@@ -31,14 +32,49 @@ const User = sequelize.define(
       allowNull: false,
     },
     role: {
-      type: DataTypes.ENUM("super_admin", "worker", "admin", "customer"),
-      defaultValue: "customer",
+      type: DataTypes.ENUM(
+        "super_admin",
+        "worker",
+        "admin",
+        "customer",
+        "team_member"
+      ),
+      defaultValue: "worker",
     },
     position: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    address: {
+    country: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    company_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: Company,
+        key: "id",
+      },
+      onDelete: "CASCADE",
+      allowNull: true,
+    },
+    customer_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Users",
+        key: "id",
+      },
+      allowNull: true,
+    },
+    phoneNumber: {
       type: DataTypes.STRING,
       allowNull: true,
     },
