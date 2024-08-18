@@ -85,4 +85,6 @@ const User = sequelize.define(
   }
 );
 
+User.belongsTo(Company, { foreignKey: "company_id", as: "company" });
+
 module.exports = User;

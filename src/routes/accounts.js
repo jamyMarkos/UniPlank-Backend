@@ -7,6 +7,8 @@ const {
   registerCustomerHandler,
   getAllCustomersHandler,
   getCustomerHandler,
+  getAllWorkersHandler,
+  getCustomerMembersHandler,
 } = require("../handlers/accounts");
 const { authenticateJWT } = require("../middleware/auth");
 const {
@@ -35,6 +37,12 @@ router
     registerCustomerHandler
   )
   .get("/customers", authorizeRole(["super_admin"]), getAllCustomersHandler)
-  .get("customers/:id", authorizeRole(["super_admin"]), getCustomerHandler);
+  .get("customers/:id", authorizeRole(["super_admin"]), getCustomerHandler)
+  .get("/workers", authorizeRole(["super_admin"]), getAllWorkersHandler)
+  .get(
+    "/customer/members",
+    authorizeRole(["customer", "admin"]),
+    getCustomerMembersHandler
+  );
 
 module.exports = router;
