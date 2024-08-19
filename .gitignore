@@ -24,3 +24,5 @@ Thumbs.db
 *.swo
 *.rest
 
+config/config.json
+
